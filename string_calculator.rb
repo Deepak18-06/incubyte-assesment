@@ -8,6 +8,7 @@ class StringCalculator
 
     check_for_negatives(numbers_array)
 
+    numbers_array.reject! { |num| num > 1000 }
     numbers_array.sum
   end
 
@@ -15,7 +16,7 @@ class StringCalculator
 
   def extract_delimiter(numbers)
     if numbers.start_with?('//')
-      delimiter = numbers[2]
+      delimiter = numbers.match(%r{//\[(.*?)\]\n|//(.*)\n}).captures.compact.first
       numbers = numbers.split("\n")[1]
     else
       delimiter = /[,\n]/
