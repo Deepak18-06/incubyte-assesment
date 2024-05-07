@@ -1,4 +1,4 @@
-require './str_calculator'
+require './string_calculator'
 
 RSpec.describe StringCalculator do
   subject(:calculator) { StringCalculator.new }
